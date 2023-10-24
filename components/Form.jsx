@@ -13,12 +13,14 @@ import LabelInput from "@/components/LabelInput"
 import { signIn } from "next-auth/react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 
 export default function Form({ title, description, fields, info, link, linkText }) {
     const searchParams = useSearchParams()
     let currentError = searchParams.get('error')
     const URL = "http://localhost:3000"
+    const { push } = useRouter();
 
     // let form = document.getElementById("form");
     // console.log(form)
@@ -38,7 +40,7 @@ export default function Form({ title, description, fields, info, link, linkText 
             // Register user
             // do passwords match
             if (userInput.password != userInput.passwordConf) {
-                window.location.href = "/signup?error=passwordNotMatch"
+                push("/signup?error=passwordNotMatch")
                 return;
             }
             // does user already exist
@@ -55,7 +57,7 @@ export default function Form({ title, description, fields, info, link, linkText 
 
             let userExists = await res.json()
             if (userExists.data[0]) {
-                window.location.href = "/signup?error=emailExists"
+                push("/signup?error=emailExists")
                 return;
             }
 

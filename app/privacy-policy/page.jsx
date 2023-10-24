@@ -39,19 +39,19 @@ export default function privacyPolicy() {
 
                 <h2>Log Files</h2>
 
-                <p>Fatigue Diary follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a it's part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+                <p>Fatigue Diary follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a it&apos;s part of hosting services&apos; analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users&apos; movement on the website, and gathering demographic information.</p>
 
                 <h2>Cookies and Web Beacons</h2>
 
-                <p>Like any other website, Fatigue Diary uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+                <p>Like any other website, Fatigue Diary uses &quot;cookies&quot;. These cookies are used to store information including visitors&apos; preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users&apos; experience by customizing our web page content based on visitors&apos; browser type and/or other information.</p>
 
 
                 <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
 
                 <p>Under the CCPA, among other rights, California consumers have the right to:</p>
-                <p>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p>
+                <p>Request that a business that collects a consumer&apos;s personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</p>
                 <p>Request that a business delete any personal data about the consumer that a business has collected.</p>
-                <p>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</p>
+                <p>Request that a business that sells a consumer&apos;s personal data, not sell the consumer&apos;s personal data.</p>
                 <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
 
                 <h2>GDPR Data Protection Rights</h2>
@@ -65,7 +65,7 @@ export default function privacyPolicy() {
                 <p>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</p>
                 <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
 
-                <h2>Children's Information</h2>
+                <h2>Children&apos;s Information</h2>
 
                 <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
 
