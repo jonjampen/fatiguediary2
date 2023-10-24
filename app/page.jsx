@@ -22,23 +22,6 @@ export default function Home() {
   const featureThreeInView = useInView(featureThree)
   let imageThreeControl = useAnimation();
 
-  async function handleInView() {
-    if (featureOneInView) {
-      await imageOneControl.start({ opacity: 1 });
-      await imageTwoControl.start({ opacity: 0 });
-      await imageThreeControl.start({ opacity: 0 });
-    }
-    else if (featureTwoInView) {
-      await imageTwoControl.start({ opacity: 1 });
-      await imageOneControl.start({ opacity: 0 });
-      await imageThreeControl.start({ opacity: 0 });
-    }
-    else if (featureThreeInView) {
-      await imageThreeControl.start({ opacity: 1 });
-      await imageOneControl.start({ opacity: 0 });
-      await imageTwoControl.start({ opacity: 0 });
-    }
-  }
 
   async function shareIt() {
     await navigator.share({
@@ -49,6 +32,25 @@ export default function Home() {
   }
 
   useEffect(() => {
+    const handleInView = async () => {
+
+      if (featureOneInView) {
+        await imageOneControl.start({ opacity: 1 });
+        await imageTwoControl.start({ opacity: 0 });
+        await imageThreeControl.start({ opacity: 0 });
+      }
+      else if (featureTwoInView) {
+        await imageTwoControl.start({ opacity: 1 });
+        await imageOneControl.start({ opacity: 0 });
+        await imageThreeControl.start({ opacity: 0 });
+      }
+      else if (featureThreeInView) {
+        await imageThreeControl.start({ opacity: 1 });
+        await imageOneControl.start({ opacity: 0 });
+        await imageTwoControl.start({ opacity: 0 });
+      }
+    }
+
     handleInView();
   }, [featureOneInView, featureTwoInView, featureThreeInView])
 
@@ -140,7 +142,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}>
           <h2 className="font-semibold">Developed by a fatigue patient</h2>
-          <p>Hello, I'm Jon. Like you, I am facing chronic fatigue, and I've created this web app to share the strategies that have helped me on my journey. This project was initially my matura (high school graduation) project.</p>
+          <p>Hello, I&apos;m Jon. Like you, I am facing chronic fatigue, and I&apos;ve created this web app to share the strategies that have helped me on my journey. This project was initially my matura (high school graduation) project.</p>
           <p>Feel free to contact me if you have any questions!</p>
         </motion.div>
         {/* <img src="" alt="" /> */}
