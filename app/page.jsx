@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { Instagram, Mail, Youtube } from 'lucide-react'
+import { Instagram, Mail, Share, Share2, Youtube } from 'lucide-react'
 import { motion, stagger, useScroll, useAnimation, useInView } from "framer-motion"
 import { useEffect, useRef } from 'react'
 
@@ -38,6 +38,14 @@ export default function Home() {
       await imageOneControl.start({ opacity: 0 });
       await imageTwoControl.start({ opacity: 0 });
     }
+  }
+
+  async function shareIt() {
+    await navigator.share({
+      title: "Fatigue Diary a tool to track and manage fatigue",
+      text: "Effortlessly monitor, analyze, and improve your energy levels and daily activities with Fatigue Diary.",
+      url: "https://www.fatiguediary.ch",
+    });
   }
 
   useEffect(() => {
@@ -176,6 +184,7 @@ export default function Home() {
             <a href="https://instagram.com/fatiguediary.ch" target="_blank"><Instagram /></a>
             {/* <a href="https://youtube.com/" target="_blank"><Youtube /></a> */}
             <a href="mailto:info@fatiguediary.ch" target="_blank"><Mail /></a>
+            <button className="w-full text-start md:w-auto md:text-auto hover:text-accent" onClick={shareIt}><Share2 /></button>
           </div>
         </div>
         <div className="flex gap-20">
@@ -183,7 +192,7 @@ export default function Home() {
             <h3 className="font-bold text-2xl">HELP</h3>
             <ul>
               <li><a href="/instructions">Instructions</a></li>
-              <li><a href="/videos">Video Guides</a></li>
+              {/* <li><a href="/videos">Video Guides</a></li> */}
               <li><a href="/contact">Contact</a></li>
               <li><a href="/feedback">Feedback Form</a></li>
             </ul>
@@ -193,7 +202,7 @@ export default function Home() {
             <ul>
               <li><a href="/login">Log In</a></li>
               <li><a href="/signup">Sign Up</a></li>
-              <li><a href="/">Share this app</a></li>
+              <li><button className="w-full text-start md:w-auto md:text-auto hover:text-accent" onClick={shareIt}>Share this app</button></li>
               <li><a href="/privacy-policy">Privacy Policy</a></li>
             </ul>
           </div>
