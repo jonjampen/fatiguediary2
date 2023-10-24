@@ -82,12 +82,12 @@ export default function Home() {
       <section>
         <div className="features flex justify-between items-start">
           <div className="img h-screen w-1/2 sticky top-0">
-            <motion.img src="/preview/circle-screenshot.svg" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="" animate={imageOneControl} initial={{ opacity: 1 }} transition={{ duration: 0 }} />
-            <motion.img src="/preview/circle-screenshot2.svg" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="" animate={imageTwoControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
-            <motion.img src="/preview/circle-screenshot3.svg" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" alt="" animate={imageThreeControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
+            <motion.img src="/preview/circle-screenshot.svg" className="absolute top-1/2 transform -translate-y-1/2" alt="" animate={imageOneControl} initial={{ opacity: 1 }} transition={{ duration: 0 }} />
+            <motion.img src="/preview/circle-screenshot2.svg" className="absolute top-1/2 transform -translate-y-1/2" alt="" animate={imageTwoControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
+            <motion.img src="/preview/circle-screenshot3.svg" className="absolute top-1/2 transform -translate-y-1/2" alt="" animate={imageThreeControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
           </div>
           <div className="text h-[300vh] w-1/2" >
-            <div className="h-screen flex items-center">
+            <div className="h-screen flex items-center justify-end">
               <motion.div className="max-w-md" ref={featureOne}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -97,7 +97,7 @@ export default function Home() {
                 <p>Log energy level and activities after every activity which can help you a lot with pacing.</p>
               </motion.div>
             </div>
-            <div className="h-screen flex items-center ">
+            <div className="h-screen flex items-center justify-end">
               <motion.div className="max-w-md" ref={featureTwo}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -107,7 +107,7 @@ export default function Home() {
                 <p>Visualize your energy trends through interactive charts to enhance your understanding of fatigue. Identify optimal times of the day and recognize potential patterns.</p>
               </motion.div>
             </div>
-            <div className="h-screen flex items-center ">
+            <div className="h-screen flex items-center justify-end">
               <motion.div className="max-w-md" ref={featureThree}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -202,6 +202,7 @@ export default function Home() {
       <section className="w-full mt-8 pb-3">
         <p className="text-center">&copy;2023 All rights reserved. Designed and developed by <a href="https://jonjampen.ch" target="_blank" className="text-accent">Jon Jampen</a>.</p>
       </section>
+      {/* </div> */}
     </main >
   )
 }
