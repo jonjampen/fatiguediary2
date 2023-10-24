@@ -37,12 +37,10 @@ export default function Home() {
       await imageThreeControl.start({ opacity: 1 });
       await imageOneControl.start({ opacity: 0 });
       await imageTwoControl.start({ opacity: 0 });
-      console.log("hey")
     }
   }
 
   useEffect(() => {
-    console.log(featureThreeInView)
     handleInView();
   }, [featureOneInView, featureTwoInView, featureThreeInView])
 
@@ -90,19 +88,34 @@ export default function Home() {
           </div>
           <div className="text h-[300vh] w-1/2" >
             <div className="h-screen flex items-center">
-              <p ref={featureOne}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus qui placeat, pariatur iste aut voluptatum non quas necessitatibus consequuntur quia dolor vitae consequatur. Cupiditate dolores minus vitae eos et non, vel tenetur facere corrupti nemo odio molestias ullam voluptas quibusdam pariatur tempora ex voluptate ratione saepe fugiat. Cum repellat sint nam quaerat reprehenderit, provident sapiente dignissimos deserunt, explicabo quasi quidem maxime perferendis consequuntur est. A ut quas libero, ipsa cum, aliquid neque atque unde architecto voluptate minus beatae vitae? Nobis voluptatem error voluptatibus, ex sapiente excepturi perferendis ratione fugit odio nam libero debitis tempore rerum dolor facere soluta provident numquam?
-              </p>
+              <motion.div className="max-w-md" ref={featureOne}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1 }}>
+                <h2 className="font-semibold">Energy and Activity Tracking</h2>
+                <p>Log energy level and activities after every activity which can help you a lot with pacing.</p>
+              </motion.div>
             </div>
             <div className="h-screen flex items-center ">
-              <p ref={featureTwo}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus qui placeat, pariatur iste aut voluptatum non quas necessitatibus consequuntur quia dolor vitae consequatur. Cupiditate dolores minus vitae eos et non, vel tenetur facere corrupti nemo odio molestias ullam voluptas quibusdam pariatur tempora ex voluptate ratione saepe fugiat. Cum repellat sint nam quaerat reprehenderit, provident sapiente dignissimos deserunt, explicabo quasi quidem maxime perferendis consequuntur est. A ut quas libero, ipsa cum, aliquid neque atque unde architecto voluptate minus beatae vitae? Nobis voluptatem error voluptatibus, ex sapiente excepturi perferendis ratione fugit odio nam libero debitis tempore rerum dolor facere soluta provident numquam?
-              </p>
+              <motion.div className="max-w-md" ref={featureTwo}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1 }}>
+                <h2 className="font-semibold">Gain Deeper Insights into Your Energy Levels</h2>
+                <p>Visualize your energy trends through interactive charts to enhance your understanding of fatigue. Identify optimal times of the day and recognize potential patterns.</p>
+              </motion.div>
             </div>
             <div className="h-screen flex items-center ">
-              <p ref={featureThree}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus qui placeat, pariatur iste aut voluptatum non quas necessitatibus consequuntur quia dolor vitae consequatur. Cupiditate dolores minus vitae eos et non, vel tenetur facere corrupti nemo odio molestias ullam voluptas quibusdam pariatur tempora ex voluptate ratione saepe fugiat. Cum repellat sint nam quaerat reprehenderit, provident sapiente dignissimos deserunt, explicabo quasi quidem maxime perferendis consequuntur est. A ut quas libero, ipsa cum, aliquid neque atque unde architecto voluptate minus beatae vitae? Nobis voluptatem error voluptatibus, ex sapiente excepturi perferendis ratione fugit odio nam libero debitis tempore rerum dolor facere soluta provident numquam?
-              </p>
+              <motion.div className="max-w-md" ref={featureThree}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1 }}>
+                <h2 className="font-semibold">Automatic Activity Analysis</h2>
+                <p>Benefit from automated analysis to identify activities that promote relaxation and recovery, as well as uncover potential sources of energy depletion you may not be aware of.</p>
+              </motion.div>
             </div>
           </div>
         </div>
