@@ -123,6 +123,11 @@ export async function POST(request) {
             params = [userid]
             rows = await executeQuery(query, params);
         }
+        else if (type === "setResetToken") {
+            query = 'INSERT INTO resettoken (user_id, token) VALUES(?,?)';
+            params = [body.userid, body.token]
+            rows = await executeQuery(query, params);
+        }
     }
     catch (error) {
         console.log("ERROR:" + error, "type: " + type)

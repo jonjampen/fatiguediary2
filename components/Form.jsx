@@ -16,9 +16,9 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import crypto from "crypto"
 
-
-export default function Form({ title, description, fields, info, link, linkText }) {
+export default function Form({ title, description, fields, info, link, linkText, token = null }) {
     const searchParams = useSearchParams()
     let currentError = searchParams.get('error')
     const URL = "http://localhost:3000"
@@ -81,6 +81,56 @@ export default function Form({ title, description, fields, info, link, linkText 
 
             // login user
             await loginUser(userInput.email, userInput.password, true);
+        } else if (title === "Request Password Reset") {
+            let res = await fetch(URL + "/api", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    "type": "selectUserByEmail",
+                    "email": userInput.email,
+                }),
+            });
+
+            let userData = await res.json()
+            if (userData.data[0]) {
+                let newToken = crypto.randomBytes(40).toString('hex');
+                let res = await fetch(URL + "/api", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "type": "setResetToken",
+                        "token": newToken,
+                        "userid": userData.data[0].id,
+                    }),
+                });
+
+                let resetLink = "https://fatiguediary.ch/password-reset/" + newToken;
+                // send email
+
+            }
+        } else if (title === "Reset Your Password") {
+            if (userInput.password === userInput.passwordConf) {
+
+                let res = await fetch(URL + "/api", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        "type": "updatePassword",
+                        "token": token,
+                        "password": userInout.password
+                    }),
+                });
+            }
+            else {
+                push("/password-reset/" + token + "?error=passwordNotMatch")
+                return
+            }
         }
     }
 
