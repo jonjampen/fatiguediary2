@@ -30,7 +30,7 @@ export default function install() {
                 </Accordion>
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>Download for Android (Chrome, Opera, Brave)</AccordionTrigger>
+                        <AccordionTrigger className="text-left">Download for Android (Chrome, Opera, Brave)</AccordionTrigger>
                         <AccordionContent>
                             <ol className="list-decimal" style={{ "list-style-type": "decimal !important" }}>
                                 <li>Open your browser and go to www.fatiguediary.ch</li>
