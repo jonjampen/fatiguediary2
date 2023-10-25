@@ -128,6 +128,18 @@ export async function POST(request) {
             params = [body.userid, body.token]
             rows = await executeQuery(query, params);
         }
+        else if (type === "updatePassword") {
+            // 1. check token and get userid
+            console.log(body.token)
+            query = 'SELECT * FROM `resettoken` WHERE `token` = ?';
+            params = [body.token[0]]
+            rows = await executeQuery(query, params);
+
+            // 2. update password
+            query = 'UPDATE `users` SET password = ? WHERE id = ?';
+            params = [body.password, rows[0].user_id]
+            rows = await executeQuery(query, params);
+        }
     }
     catch (error) {
         console.log("ERROR:" + error, "type: " + type)

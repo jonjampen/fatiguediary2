@@ -110,11 +110,11 @@ export default function Form({ title, description, fields, info, link, linkText,
 
                 let resetLink = "https://fatiguediary.ch/password-reset/" + newToken;
                 // send email
+                push("/password-reset/" + "?success")
 
             }
         } else if (title === "Reset Your Password") {
             if (userInput.password === userInput.passwordConf) {
-
                 let res = await fetch(URL + "/api", {
                     method: "POST",
                     headers: {
@@ -123,9 +123,10 @@ export default function Form({ title, description, fields, info, link, linkText,
                     body: JSON.stringify({
                         "type": "updatePassword",
                         "token": token,
-                        "password": userInout.password
+                        "password": userInput.password
                     }),
                 });
+                push("/password-reset/" + token + "?success")
             }
             else {
                 push("/password-reset/" + token + "?error=passwordNotMatch")
