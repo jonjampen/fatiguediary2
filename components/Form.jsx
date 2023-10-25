@@ -14,6 +14,8 @@ import { signIn } from "next-auth/react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 
 export default function Form({ title, description, fields, info, link, linkText }) {
@@ -30,6 +32,7 @@ export default function Form({ title, description, fields, info, link, linkText 
         "email": "",
         "password": "",
         "passwordConf": "",
+        "privacyPolicy": "",
     }
 
     async function handleSubmit(e) {
@@ -127,9 +130,19 @@ export default function Form({ title, description, fields, info, link, linkText 
                         <div className="grid w-full items-center gap-4">
                             {fields.map(field => {
                                 return (
-                                    <LabelInput key={field.name} title={field.title} placeholder={field.placeholder} name={field.name} type={field.type} change={handleChange} />
+                                    <LabelInput key={field.name} title={field.title} placeholder={field.placeholder} name={field.name} type={field.type} change={handleChange} page={title} />
                                 )
                             })}
+                            {(() => {
+                                if (title === "Signup") {
+                                    return (
+                                        <div className="flex justify-start gap-3">
+                                            <Input type={"checkbox"} name={"pp"} className="h-4 w-4" onChange={(e) => handleChange("pp", e.target.value)} />
+                                            <Label htmlFor={"pp"}>I agree to the <a href="/privacy-policy" target="_blank">privacy policy</a>.</Label>
+                                        </div>
+                                    )
+                                }
+                            })()}
                         </div>
                     </CardContent>
                     <CardFooter className="flex-col items-center">
