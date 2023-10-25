@@ -204,6 +204,7 @@ export default function Home() {
             <ul>
               <li><a href="/login">Log In</a></li>
               <li><a href="/signup">Sign Up</a></li>
+              <li><a href="/install">Install</a></li>
               <li><button className="w-full text-start md:w-auto md:text-auto hover:text-accent" onClick={shareIt}>Share this app</button></li>
               <li><a href="/privacy-policy">Privacy Policy</a></li>
             </ul>
