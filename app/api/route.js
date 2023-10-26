@@ -140,6 +140,13 @@ export async function POST(request) {
             params = [body.password, rows[0].user_id]
             rows = await executeQuery(query, params);
         }
+        else if (type === "toggleActivityVisibility") {
+            console.log("start")
+            query = 'UPDATE `activities` SET hidden = ? WHERE id = ?';
+            params = [body.state, body.activityId]
+            rows = await executeQuery(query, params);
+            console.log("done")
+        }
     }
     catch (error) {
         console.log("ERROR:" + error, "type: " + type)
@@ -147,5 +154,6 @@ export async function POST(request) {
     // if (type === "getActivitiesById" && typeof rows != "undefined") {
     //     console.log("rows low", rows)
     // }
+    console.log("done")
     return NextResponse.json({ data: rows }, { status: 200 });
 }
