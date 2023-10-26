@@ -151,7 +151,7 @@ export default function AddForm({ startActivities, fetchActivities, id }) {
                 <CardHeader>
                     <div className="flex justify-between items-center">
                         <CardTitle>Activities</CardTitle>
-                        {isEditing ? <button onClick={() => setIsEditing(!isEditing)}>Save</button> : <Edit onClick={() => setIsEditing(!isEditing)} style={{ cursor: "pointer" }} />}
+                        {isEditing ? <button onClick={() => setIsEditing(!isEditing)}>Done</button> : <Edit onClick={() => setIsEditing(!isEditing)} style={{ cursor: "pointer" }} />}
                     </div>
                     <CardDescription>{isEditing ? "Click on an activity to edit/delete/hide it. Then click on save to select your preferred activities." : "Mark the activities that you have just done."}</CardDescription>
                 </CardHeader>
@@ -195,19 +195,19 @@ export default function AddForm({ startActivities, fetchActivities, id }) {
                     </ul>
                     {(() => {
                         if (isEditing) {
-                            return <ul className="activities w-full mt-3">
-                                <div>
-                                    <Separator className="mb-2" />
-                                    <h6 className="text-center mb-2 text-sm">Hidden Activities</h6>
+                            return <div>
+                                <Separator className="my-2" />
+                                <h6 className="text-center mb-2 text-sm">Hidden Activities</h6>
+                                <ul className="activities w-full mt-3">
                                     {
                                         activities.map(activity => {
                                             if (activity.hidden) {
-                                                return <ActivityItem fetchActivities={updateActivities} key={activity.id} activityId={activity.id} selectedActivities={selectedActivities} setSelectedActivities={setSelectedActivities} style={{ 'word-break': 'break-all;', "backgroundColor": (selectedActivities.includes(activity.id)) ? "hsl(var(--primary))" : "transparent", "color": "hsl(var(--muted-foreground))" }} isEditing={isEditing}>{activity.name}</ActivityItem>
+                                                return <ActivityItem fetchActivities={updateActivities} key={activity.id} activityId={activity.id} selectedActivities={selectedActivities} setSelectedActivities={setSelectedActivities} style={{ 'word-break': 'break-all;', "backgroundColor": (selectedActivities.includes(activity.id)) ? "hsl(var(--primary))" : "transparent", "color": "hsl(var(--muted-foreground))" }} isEditing={isEditing} isHidden={true}>{activity.name}</ActivityItem>
                                             }
                                         })
                                     }
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         }
                     })()}
                 </CardContent>
@@ -223,6 +223,6 @@ export default function AddForm({ startActivities, fetchActivities, id }) {
             <LoaderButton type="submit">
                 Save Entry
             </LoaderButton>
-        </form>
+        </form >
     )
 }
