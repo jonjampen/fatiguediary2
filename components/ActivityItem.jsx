@@ -7,7 +7,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { EyeOff, Pencil, Trash2 } from 'lucide-react';
+import { EyeIcon, EyeOff, Pencil, Trash2 } from 'lucide-react';
 import {
     Dialog,
     DialogContent,
@@ -66,7 +66,7 @@ export default function ActivityItem({ children, activityId, selectedActivities,
                         <DropdownMenuLabel>Edit {children}</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem><Pencil className="h-3 w-3" />&nbsp;Edit</DropdownMenuItem>
-                        <DropdownMenuItem onClick={async () => await hide()}><EyeOff className="h-3 w-3" />&nbsp;Hide</DropdownMenuItem>
+                        <DropdownMenuItem onClick={async () => await hide()}>{isHidden ? <EyeIcon className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}&nbsp;{isHidden ? "unhide" : "hide"}</DropdownMenuItem>
                         <DialogTrigger className="w-full">
                             <DropdownMenuItem className="text-destructive"><Trash2 className="h-3 w-3" />&nbsp;Delete</DropdownMenuItem>
                         </DialogTrigger>
