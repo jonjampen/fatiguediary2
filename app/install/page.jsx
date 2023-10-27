@@ -19,11 +19,11 @@ export default function install() {
                         <AccordionTrigger>Download for IOS</AccordionTrigger>
                         <AccordionContent>
                             <ol className="list-decimal" style={{ listStyleType: "decimal !important" }}>
-                                <li>Open Safari and go to www.fatiguediary.ch</li>
-                                <li style={{ display: "inline" }}>Click on the share ( <span style={{ verticalAlign: "middle" }}><Share /></span>) icon.</li>
-                                <li>Click "Add to Home Screen".</li>
-                                <li>Confirm the name of the app.</li>
-                                <li>Click "Add".</li>
+                                <li>1. Open Safari and go to www.fatiguediary.ch</li>
+                                <li style={{ display: "inline" }}>2. Click on the share (<Share />) icon.</li>
+                                <li>3. Click "Add to Home Screen".</li>
+                                <li>4. Confirm the name of the app.</li>
+                                <li>5. Click "Add".</li>
                             </ol>
                         </AccordionContent>
                     </AccordionItem>
@@ -33,11 +33,11 @@ export default function install() {
                         <AccordionTrigger className="text-left">Download for Android (Chrome, Opera, Brave)</AccordionTrigger>
                         <AccordionContent>
                             <ol className="list-decimal" style={{ "list-style-type": "decimal !important" }}>
-                                <li>Open your browser and go to www.fatiguediary.ch</li>
-                                <li className="inline-block">Click on the three dots (<MoreVertical />).</li>
-                                <li>Click "Add to Home Screen".</li>
-                                <li>Confirm the name of the app.</li>
-                                <li>Click "Add".</li>
+                                <li>1. Open your browser and go to www.fatiguediary.ch</li>
+                                <li className="inline-block">2. Click on the three dots (<MoreVertical />).</li>
+                                <li>3. Click "Add to Home Screen".</li>
+                                <li>4. Confirm the name of the app.</li>
+                                <li>5. Click "Add".</li>
                             </ol>
                         </AccordionContent>
                     </AccordionItem>
@@ -47,11 +47,11 @@ export default function install() {
                         <AccordionTrigger>Download for Android (Firefox)</AccordionTrigger>
                         <AccordionContent>
                             <ol className="list-decimal" style={{ "list-style-type": "decimal !important" }}>
-                                <li>Open Firefox and go to www.fatiguediary.ch</li>
-                                <li className="inline-block">Click on the three dots (<MoreVertical />).</li>
-                                <li>Click "Install".</li>
-                                <li>Confirm the name of the app.</li>
-                                <li>Click "Add".</li>
+                                <li>1. Open Firefox and go to www.fatiguediary.ch</li>
+                                <li className="inline-block">2. Click on the three dots (<MoreVertical />).</li>
+                                <li>3. Click "Install".</li>
+                                <li>4. Confirm the name of the app.</li>
+                                <li>5. Click "Add".</li>
                             </ol>
                         </AccordionContent>
                     </AccordionItem>
