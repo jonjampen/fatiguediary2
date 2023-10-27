@@ -52,6 +52,19 @@ export default function ActivityItem({ children, activityId, selectedActivities,
         await fetchActivities();
     }
 
+    async function deleteActivity() {
+        let URL = "http://localhost:3000"
+        // change hidden state in db
+        let res = await fetch(URL + "/api", {
+            method: "POST",
+            body: JSON.stringify({
+                "type": "deleteActivityById",
+                "activityId": activityId,
+            }),
+        })
+        await fetchActivities();
+    }
+
     if (!isEditing) {
         return <li className="border rounded min-h-[44px] flex items-center justify-center text-center cursor-pointer select-none px-1" style={style} onClick={selectActivity}>{children}</li>
     }
@@ -82,7 +95,7 @@ export default function ActivityItem({ children, activityId, selectedActivities,
                             <DialogClose asChild>
                                 <Button variant="outline">Cancel</Button>
                             </DialogClose>
-                            <LoaderButton>Delete</LoaderButton>
+                            <LoaderButton onClick={deleteActivity}>Delete</LoaderButton>
                         </DialogFooter>
                     </DialogContent>
                 </DropdownMenu>

@@ -141,11 +141,18 @@ export async function POST(request) {
             rows = await executeQuery(query, params);
         }
         else if (type === "toggleActivityVisibility") {
-            console.log("start")
             query = 'UPDATE `activities` SET hidden = ? WHERE id = ?';
             params = [body.state, body.activityId]
             rows = await executeQuery(query, params);
-            console.log("done")
+        }
+        else if (type === "deleteActivityById") {
+            query = 'DELETE FROM `activities` WHERE id = ? AND user_id = ?';
+            params = [body.activityId, userid]
+            rows = await executeQuery(query, params);
+
+            query = 'DELETE FROM `energy_activities` WHERE activity_id = ? AND user_id = ?';
+            params = [body.activityId, userid]
+            rows = await executeQuery(query, params);
         }
     }
     catch (error) {
@@ -154,6 +161,5 @@ export async function POST(request) {
     // if (type === "getActivitiesById" && typeof rows != "undefined") {
     //     console.log("rows low", rows)
     // }
-    console.log("done")
     return NextResponse.json({ data: rows }, { status: 200 });
 }
