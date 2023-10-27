@@ -145,6 +145,11 @@ export async function POST(request) {
             params = [body.state, body.activityId]
             rows = await executeQuery(query, params);
         }
+        else if (type === "updateActivityById") {
+            query = 'UPDATE `activities` SET name = ? WHERE id = ? AND user_id = ?';
+            params = [body.activityName, body.activityId, userid]
+            rows = await executeQuery(query, params);
+        }
         else if (type === "deleteActivityById") {
             query = 'DELETE FROM `activities` WHERE id = ? AND user_id = ?';
             params = [body.activityId, userid]
