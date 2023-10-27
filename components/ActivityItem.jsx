@@ -119,7 +119,7 @@ export default function ActivityItem({ children, activityId, selectedActivities,
 
                             <DropdownMenuItem onClick={async () => await hide()}>{isHidden ? <EyeIcon className="h-3 w-3" /> : <EyeOff className="h-3 w-3" />}&nbsp;{isHidden ? "unhide" : "hide"}</DropdownMenuItem>
 
-                            <AlertDialogTrigger>
+                            <AlertDialogTrigger className="w-full">
                                 <DropdownMenuItem className="text-destructive"><Trash2 className="h-3 w-3" />&nbsp;Delete</DropdownMenuItem>
                             </AlertDialogTrigger>
                         </DropdownMenuContent>
