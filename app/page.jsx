@@ -92,9 +92,9 @@ export default function Home() {
       <section>
         <div className="features flex justify-between items-start">
           <div className="img h-screen w-1/2 sticky top-0">
-            <motion.img src="/preview/circle-screenshot.svg" className="absolute top-1/2 transform -translate-y-1/2" alt="" animate={imageOneControl} initial={{ opacity: 1 }} transition={{ duration: 0 }} />
-            <motion.img src="/preview/circle-screenshot2.svg" className="absolute top-1/2 transform -translate-y-1/2" alt="" animate={imageTwoControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
-            <motion.img src="/preview/circle-screenshot3.svg" className="absolute top-1/2 transform -translate-y-1/2" alt="" animate={imageThreeControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
+            <motion.img src="/preview/feature/light/track.svg" className="absolute top-1/2 transform -translate-y-1/2 h-[70vh] max-w-1/2 max-h-[70vh]" alt="" animate={imageOneControl} initial={{ opacity: 1 }} transition={{ duration: 0 }} />
+            <motion.img src="/preview/feature/light/analysis.svg" className="absolute top-1/2 transform -translate-y-1/2 max-h-[70vh] max-w-1/2" alt="" animate={imageTwoControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
+            <motion.img src="/preview/feature/light/automated-analysis.svg" className="absolute top-1/2 transform -translate-y-1/2 max-h-[70vh] max-w-1/2" alt="" animate={imageThreeControl} initial={{ opacity: 0 }} transition={{ duration: 0 }} />
           </div>
           <div className="text h-[300vh] w-1/2" >
             <div className="h-screen flex items-center justify-end">
@@ -104,7 +104,7 @@ export default function Home() {
                 viewport={{ once: false }}
                 transition={{ duration: 1 }}>
                 <h2 className="font-semibold">Energy and Activity Tracking</h2>
-                <p>Log energy level and activities after every activity which can help you a lot with pacing.</p>
+                <p>Log energy level and activities after every activity which can help you get started with pacing.</p>
               </motion.div>
             </div>
             <div className="h-screen flex items-center justify-end">
@@ -142,7 +142,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}>
           <h2 className="font-semibold">Developed by a fatigue patient</h2>
-          <p>Hello, I&apos;m Jon. Like you, I am facing chronic fatigue, and I&apos;ve created this web app to share the strategies that have helped me on my journey. This project was initially my matura (high school graduation) project.</p>
+          <p>Hello, I&apos;m Jon. Like you, I am facing chronic fatigue, and I&apos;ve created this web app to share the strategies that have helped me on my journey. This project started as my matura (high school graduation) project.</p>
           <p>Feel free to contact me if you have any questions!</p>
         </motion.div>
         {/* <img src="" alt="" /> */}
