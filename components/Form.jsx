@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { LoaderButton } from "@/components/ui/loaderButton"
 import {
     Card,
@@ -41,6 +41,14 @@ export default function Form({ title, description, fields, info, link, linkText,
             await loginUser(userInput.email, userInput.password, false);
         } else if (title === "Signup") {
             // Register user
+            if (!userInput.privacyPolicy) {
+                push("/signup?error=privacyPolicyMissing")
+                return;
+            }
+            if (!userInput.password || !userInput.passwordConf || !userInput.email || !userInput.name) {
+                push("/signup?error=missingInformation")
+                return;
+            }
             // do passwords match
             if (userInput.password != userInput.passwordConf) {
                 push("/signup?error=passwordNotMatch")
@@ -178,6 +186,12 @@ export default function Form({ title, description, fields, info, link, linkText,
                                     else if (currentError === "emailExists") {
                                         return <>Username or password wrong, please try again or  <a href="/signup">create a new account</a>.</>
                                     }
+                                    else if (currentError === "privacyPolicyMissing") {
+                                        return <>Please agree to our <a href="/privacy-policy">privacy policy</a>.</>
+                                    }
+                                    else if (currentError === "missingInformation") {
+                                        return <>Please provide all the required information.</>
+                                    }
                                     else {
                                         return <>There was an error logging you in. Please try again or contact support.</>
                                     }
@@ -199,7 +213,7 @@ export default function Form({ title, description, fields, info, link, linkText,
                                 if (title === "Signup") {
                                     return (
                                         <div className="flex justify-start gap-3">
-                                            <Input type={"checkbox"} name={"pp"} className="h-4 w-4" onChange={(e) => handleChange("pp", e.target.value)} />
+                                            <Input type={"checkbox"} name={"pp"} className="h-4 w-4" onChange={(e) => handleChange("privacyPolicy", e.target.value)} />
                                             <Label htmlFor={"pp"}>I agree to the <a href="/privacy-policy" target="_blank">privacy policy</a>.</Label>
                                         </div>
                                     )
