@@ -76,7 +76,7 @@ export default function RatedActivities() {
         // setBadActivities()
         const sortByGoodValue = (a, b) => b[1] - a[1];
         const sortByBadValue = (a, b) => a[1] - b[1];
-        setBadActivities({ ...Object.entries(ratedActivities.bad).sort(sortByBadValue) })
+        setBadActivities(Object.entries(ratedActivities.bad).sort(sortByBadValue))
         setGoodActivities(Object.entries(ratedActivities.good).sort(sortByGoodValue))
     }
 
@@ -117,15 +117,15 @@ export default function RatedActivities() {
                 <CardContent>
                     <ul className="activities w-full">
                         {goodActivities != undefined ? (
-                            Object.keys(goodActivities).map((key) => {
-                                let color = calculateRelativeColor(goodActivities[key])
+                            goodActivities.map((values, key) => {
+                                let color = calculateRelativeColor(values[1])
                                 return (
                                     <li className="border rounded min-h-[44px] flex items-center justify-center text-center cursor-pointer select-none px-1" key={key}
                                         style={{
                                             "border": "2px solid " + color,
                                             'wordBreak': 'break-all'
                                         }}>
-                                        {key}
+                                        {values[0]}
                                     </li>
                                 )
                             })
@@ -144,15 +144,15 @@ export default function RatedActivities() {
                 <CardContent>
                     <ul className="activities w-full">
                         {badActivities != undefined ? (
-                            Object.keys(badActivities).map((key) => {
-                                let color = calculateRelativeColor(badActivities[key])
+                            badActivities.map((values, key) => {
+                                let color = calculateRelativeColor(values[1])
                                 return (
                                     <li className="border rounded min-h-[44px] flex items-center justify-center text-center cursor-pointer select-none px-1" key={key}
                                         style={{
                                             "border": "2px solid " + color,
                                             'wordBreak': 'break-all'
                                         }}>
-                                        {key}
+                                        {values[0]}
                                     </li>
                                 )
                             })
