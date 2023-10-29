@@ -123,6 +123,11 @@ export async function POST(request) {
             params = [userid]
             rows = await executeQuery(query, params);
         }
+        else if (type === "setUserSettings") {
+            query = 'UPDATE `settings` SET `theme`= ?, `wake_up_time` = ?, `bed_time` = ?, `language` = ? WHERE `user_id` = ?';
+            params = [body.theme, body.awakeTime, body.bedTime, body.language, userid]
+            rows = await executeQuery(query, params);
+        }
         else if (type === "setResetToken") {
             query = 'INSERT INTO resettoken (user_id, token) VALUES(?,?)';
             params = [body.userid, body.token]
@@ -168,8 +173,5 @@ export async function POST(request) {
     catch (error) {
         console.log("ERROR:" + error, "type: " + type)
     }
-    // if (type === "getActivitiesById" && typeof rows != "undefined") {
-    //     console.log("rows low", rows)
-    // }
     return NextResponse.json({ data: rows }, { status: 200 });
 }

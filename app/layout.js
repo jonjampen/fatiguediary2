@@ -2,6 +2,7 @@ import './globals.scss'
 import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Provider from './lib/Provider'
+import { getSettings } from './lib/settings'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,9 +12,12 @@ export const metadata = {
   manifest: "/manifest.json",
 }
 
-export default function RootLayout({ children }) {
+
+export default async function RootLayout({ children }) {
+  let settings = await getSettings();
+
   return (
-    <html lang="en" className="">
+    <html lang="en" className={settings.theme !== 1 && "dark"}>
       <body className={inter.className}>
         <Provider>
           <Navbar />
