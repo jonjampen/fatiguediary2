@@ -33,7 +33,7 @@ export default function RatedActivities() {
         let lastEntryId, lastDifference;
 
         entries.map((entry, key) => {
-            if (key === 0) return;
+            if (key === 0 || !entry.activity_name) return;
 
             if (!activityDiffs[entry.activity_name])
                 activityDiffs[entry.activity_name] = [];
@@ -63,7 +63,6 @@ export default function RatedActivities() {
 
             tempBestScore = Math.max(avg, tempBestScore)
             tempWorstScore = Math.min(avg, tempWorstScore)
-            console.log(bestScore)
 
             let scoreType = avg < 0 ? 'bad' : avg > 0 ? 'good' : undefined;
 
@@ -90,7 +89,6 @@ export default function RatedActivities() {
             scale = bestScore / numColors;
             offset = 6
             colorIndex = Math.ceil(avg / scale - 1) + offset;
-            console.log("best", bestScore)
         }
         else {
             scale = worstScore / numColors;
