@@ -159,6 +159,11 @@ export async function POST(request) {
             params = [body.activityId, userid]
             rows = await executeQuery(query, params);
         }
+        else if (type === "getEntriesActivities") {
+            query = 'SELECT e.id as energy_id, e.user_id as user_id, e.energylevel as energylevel, e.datetime as datetime, a.id as activity_id, a.name as activity_name  FROM energy as e, energy_activities as ea, activities as a WHERE e.user_id = ? AND e.id = ea.energy_id AND ea.activity_id = a.id ORDER BY e.datetime ASC;';
+            params = [userid]
+            rows = await executeQuery(query, params);
+        }
     }
     catch (error) {
         console.log("ERROR:" + error, "type: " + type)
